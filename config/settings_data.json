@@ -1,0 +1,112 @@
+{
+  "current": {
+    "sections": {
+      "1631025323c0cf5333": {
+        "type": "hero",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Hero_Image.png"
+        }
+      },
+      "1631656202baab7509": {
+        "type": "rich-text",
+        "settings": {
+          "title": "Section Heading",
+          "text": "<p>Write your description here<\/p>"
+        }
+      },
+      "16316592166c720781": {
+        "type": "image-with-text",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Vuejs.png",
+          "title": "Vue.js",
+          "text": "<p>Write your description here<\/p>",
+          "reverse": true
+        }
+      },
+      "16316592193bd2fc78": {
+        "type": "image-with-text",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Why_Shopify.png",
+          "title": "Why Shopify?",
+          "text": "<p>Write your description here<\/p>",
+          "reverse": false
+        }
+      },
+      "16316606486010397b": {
+        "type": "logo-list",
+        "blocks": {
+          "16316606486010397b-0": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/js_logo.png",
+              "link": ""
+            }
+          },
+          "16316606486010397b-1": {
+            "type": "logo_image",
+            "settings": {
+              "link": ""
+            }
+          },
+          "16316606486010397b-2": {
+            "type": "logo_image",
+            "settings": {
+              "link": ""
+            }
+          },
+          "16316606486010397b-3": {
+            "type": "logo_image",
+            "settings": {
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "16316606486010397b-0",
+          "16316606486010397b-1",
+          "16316606486010397b-2",
+          "16316606486010397b-3"
+        ],
+        "settings": {
+          "title": "Logo List"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "e66f5814-3ddf-4445-acea-4412ba238932": {
+            "type": "social_link",
+            "settings": {
+              "title": "Facebook",
+              "link": "https:\/\/www.facebook.com"
+            }
+          },
+          "a76dd630-a967-49dc-908b-5c5a8601980e": {
+            "type": "social_link",
+            "settings": {
+              "title": "Instagram",
+              "link": "https:\/\/www.instagram.com"
+            }
+          }
+        },
+        "block_order": [
+          "e66f5814-3ddf-4445-acea-4412ba238932",
+          "a76dd630-a967-49dc-908b-5c5a8601980e"
+        ],
+        "settings": {
+          "title": "Build a Shopify Theme From Scratch!"
+        }
+      }
+    },
+    "content_for_index": [
+      "1631025323c0cf5333",
+      "1631656202baab7509",
+      "16316592193bd2fc78",
+      "16316592166c720781",
+      "16316606486010397b"
+    ]
+  },
+  "presets": {
+    "Default": {}
+  }
+}

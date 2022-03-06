@@ -1,0 +1,25 @@
+<div class="hero-image image-section">
+    {% comment %} section accesses the schema, settings accesses settings
+    within the schem and image is accessing the id type
+    {% endcomment %}
+    <img src="{{ section.settings.image | img_url: 'master' }}">
+</div>
+
+{% schema %}
+{
+    "name": "Hero Image",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        }
+    ],
+    "presets": [
+        {
+        "name": "Hero Image",
+        "category": "Image"
+        }
+    ]
+}
+{% endschema %}

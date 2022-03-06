@@ -1,0 +1,21 @@
+<div class="product-option-row">
+   <!-- to be able to toggle it you set it equal to the opposite value of it. -->
+    <div class="product-option-label" @click="option.visible = !option.visible" :class="{ labelActive: option.visible }">
+        ${ option.name }: <span>${ selected[i] }</span>
+    </div>
+    <div class="product-option-list" v-if="option.visible">
+        <!-- remember to use option not options -->
+        <template v-for="(value, index) in option.values">
+            <div class="product-option-item"
+                @click="
+                    selected[i] = value;
+                    option.visible = false;
+                    form.selections[i] = value;
+                    "
+                >
+
+                ${ value }
+            </div>
+        </template>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+<form id="add-to-cart-form">
+    <!-- option for first value and i for index will be inside of form.options
+    basically referencing all the options and looping over all of them-->
+    <template v-for="(option, i) in form.options" :key="i">
+        <div>
+            {% render 'product-option-row' %}
+        </div>
+    </template>
+
+    <!-- the @click is the function we created in methods in Vue.js which is addToCart-->
+    <button @click="addToCart" type="submit" name="add" class="add-to-cart-button">Add to cart</button>
+</form>
+
+<script>
+    // if statement when the selector is add-to-cart-form
+    if (document.querySelector('#add-to-cart-form')) {
+        // created a constant called productForm and that is 
+        // Vue app
+        const productForm = Vue.createApp({
+            // changed to ${} like jquery since vue uses {{}}
+            delimiters: ['${', '}'],
+            // data object
+            data() {
+                return {
+                    // adds in data grabed from the created function
+                    open: false,
+                    variants: "",
+                    // the output saved from the options selected
+                    selected: [],
+                    form: {
+                        selections: "",
+                        options: ""
+                    }
+                }
+            },
+            // created to fetch product info
+            created() {
+                axios.get("/products/{{ product.handle }}.js")
+                .then(results => {
+                    console.log(results)
+                    // we are mapping over all the options available when we fetched
+                    // the product info
+                    this.form.options = results.data.options.map(item => ({...item, visible: false}))
+                    this.variants = results.data.variants
+                    results.data.options.map(item => this.selected.push(item.values[0]))
+                    this.form.selections = [
+                        this.selected[0] ? this.selected[0] : null,
+                        this.selected[1] ? this.selected[1] : null,
+                        this.selected[2] ? this.selected[2] : null
+                    ]
+                })
+            },
+            // methods for the addToCart function 
+            methods: {
+                addToCart(event) {
+                    event.preventDefault()
+
+                    let selectedVariant 
+
+                    this.variants.forEach((variant, i) => {
+                        if (variant.option1 === this.form.selections[0] && variant.option2 === this.form.selections[1] && variant.option3 === this.form.selections[2]) {
+                            selectedVariant = variant
+                        } 
+                    })
+
+                    let data = {
+                        id: selectedVariant.id,
+                        quantity: 1
+                    }
+
+                    // this adds the product to the cart
+                    axios.post('/cart/add.js', data)
+                        .then((response) => {
+                            // update the cart 
+                            store.getCart()
+                        })
+                        .then(() => {
+                            toggleMiniCart.openCart()
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        })
+                }
+            }
+        }).mount('#add-to-cart-form') 
+    }
+</script>
