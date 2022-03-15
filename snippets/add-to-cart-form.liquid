@@ -8,7 +8,7 @@
     </template>
 
     <!-- the @click is the function we created in methods in Vue.js which is addToCart-->
-    <button @click="addToCart" type="submit" name="add" class="add-to-cart-button">Add to cart</button>
+    <button @click="addToCart" type="submit" name="add" data-default-price="{{ product.price | money }}" class="add-to-cart-button">Add to cart - {{ product.price | money }}</button>
 </form>
 
 <script>

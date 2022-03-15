@@ -1,8 +1,8 @@
 {
   "general": {
     "shop": {
-      "title": "In-House",
-      "description": "Designer furniture for the discerning customer.",
+      "title": "Bizycs",
+      "description": "E-bikes for all terrain.",
       "shop_now": "Shop Now",
       "read_more": "Read More"
     },
@@ -17,13 +17,15 @@
       "products": "Our Products"
     },
     "bottom": {
-      "copyright": "©{{ date }}  InHouse, Inc."
+      "copyright": "©{{ date }}  Bizycs, Inc."
     }
   },
   "collection": {
     "sort": {
+      "title": "Sort",
       "price_low_high": "Price, $-$$$",
-      "price_high_low": "Price, $$$-$"
+      "price_high_low": "Price, $$$-$",
+      "clear": "Clear"
     }
   },
   "cart": {
@@ -55,10 +57,30 @@
     "returns": {
       "title": "Returns",
       "content": "We accept returns within 10 days od delivery. For more information, see the Delivery & Returns page."
+    },
+    "form": {
+      "submit": "Add to Cart",
+      "sold_out": "Sold Out"
+    },
+    "more": {
+      "vendor": "By {{ vendor }}"
+    },
+    "colors": {
+      "white": "FFFFFF",
+      "black": "000000",
+      "raw": "707070"
     }
   },
-  "form": {
-    "submit": "Add to Cart",
-    "sold_out": "Sold Out"
+  "search": {
+    "form": {
+      "label": "Search Bizycs",
+      "placeholder": "Your search term",
+      "submit": "Submit"
+    },
+    "results": {
+      "empty": "No results for {{ searchTerms }}",
+      "filled_singular": "result",
+      "filled_plural": "results"
+    }
   }
 }

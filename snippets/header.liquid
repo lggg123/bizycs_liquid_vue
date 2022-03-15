@@ -16,7 +16,9 @@
 
     <a href="/" class="header-title">{{ shop.name }}</a>
 
-    <div class="currency-picker">{% render 'currency-picker' %}</div>
+   <a class="search-icon" href="/search">
+    <img src="{{ 'icon-search.svg' | asset_url }}">
+  </a>
     <div class="cart-button-container" @click="toggleMiniCart">
         <button class="cart-button">
             <span>
@@ -46,13 +48,13 @@
     {% render 'menu-drawer' %}
   </div>
 
-    <div class="mini-cart" :class="{ hidden: miniCart }">
-      <button class="mini-cart-close-button" @click="toggleMiniCart">Close</button>
-        {% render 'mini-cart' %}
-    </div>
-    <!-- the v-if statement is a vue js if clause that if either or is false 
-      use the outside class if not use the above class -->
-    <div class="outside" v-if="!miniCart || !menuDrawer" @click="closeAllDrawers"></div>
+  <div class="mini-cart" :class="{ hidden: miniCart }">
+    <button class="mini-cart-close-button" @click="toggleMiniCart">Close</button>
+      {% render 'mini-cart' %}
+  </div>
+  <!-- the v-if statement is a vue js if clause that if either or is false 
+    use the outside class if not use the above class -->
+  <div class="outside" v-if="!miniCart || !menuDrawer" @click="closeAllDrawers"></div>
 </header>
 
 <script>

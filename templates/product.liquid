@@ -1,7 +1,7 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
 
-<div class="product-template container">
+<div id="product-page" class="product-template container">
   <div class="product-images">
     <div class="swiper-container-product-page swiper-container-{{- product.id -}}">
       <div class="swiper-wrapper">
@@ -17,7 +17,6 @@
     </div>
   </div>
 
-
   <div class="product-description-container">
     <div class="product-title">
       <h1>{{ product.title }}</h1>
@@ -30,9 +29,41 @@
       {% render 'add-to-cart-form' %}
     </div>
   </div>
+
+  {% section 'product-recommendations'%}
 </div>
 
 <script>
+  const ProductPage = {
+    data() {
+      return {
+        current_variant_id: "{{ product.selected_or_first_available_variant.id }}",
+        variant_selection: {
+          option1: "{{ product.options_with_values[0].selected_value }}",
+          option2: "{{ product.options_with_values[1].selected_value }}",
+          option3: "{{ product.options_with_values[2].selected_value }}"
+        },
+        variants: [
+          {% for variant in product.variants %}
+            {
+              id: "{{ variant.id }}",
+              available: {{ variant.available }},
+              option1: "{{ variant.option1 }}",
+              option2: "{{ variant.option2 }}",
+              option3: "{{ variant.option3 }}",
+              price: "{{ variant.price | money }}",
+              {% assign img_url = variant.image.src | img_url: '500x', scale: 2 %}
+              image: "{% unless img_url contains 'no-image' %}{{ img_url }}{% endunless %}"
+            }
+          {% endfor %}
+        ],
+        fallback_product_image: "{{ featured_image | img_url: '500x', scale: 2 }}"
+      }
+    }
+  }
+
+  Vue.createApp(ProductPage).mount('#product-page');
+
   new Swiper(".swiper-container-{{- product.id -}}", {
       slidesPerView: 1,
       centeredSlides: true,

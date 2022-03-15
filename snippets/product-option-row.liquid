@@ -13,8 +13,12 @@
                     form.selections[i] = value;
                     "
                 >
-
-                ${ value }
+                    {% if force_colors == true %}
+                        {% render 'color-swatch' with color: value %}
+                    {% else %}
+                        ${ value }
+                    {% endif %}
+                </div>
             </div>
         </template>
     </div>
